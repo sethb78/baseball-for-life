@@ -1,0 +1,28 @@
+<?php
+
+include'connection.php';
+mysql_select_db("baseballforlife", $accounts);
+
+
+
+
+$sql=("INSERT INTO History(Year,1st,2nd,3rd,Regular_Season_Champ) 
+VALUES('2003','Chris Stryshak','Brian Davis','Rob Gleason','Chris Stryshak');
+");
+
+
+
+
+$sql2 = ("INSERT INTO Team_History(Year,First_Name,Last_Name,Record,Pct,GB,Playoffs,Regular_Season_Finish,Playoff_Finish) 
+VALUES	('2003','Chris','Stryshak','171-118-19','.586','-','yes','1st','1st');
+
+
+");
+
+
+
+mysql_query($sql,$accounts);
+mysql_query($sql2,$accounts);
+
+
+?>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+<head>
+
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>      
+	</style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]-->
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!--[endif]-->
+<!-- Modernizr for browser feature-checking 
+			+ HTML5shiv (included in modernizr) see modernizr.com -->
+  	<script src="js/modernizr-2.5.3.min.js"></script>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" href="images/sba.ico">
+</head>
+  <link rel="shortcut icon" href="images/ball.ico">
+<body>
+	<base target="_blank"><base target="_blank">
+	<div class="baseball">
+		
+			<div class="header">
+			<h1> BASEBALL FOR LIFE:  THE NEXT CHAPTER</h1>
+		</div>
+		<div class="navbar"><!--Navigation Bar-->
+			<div class="navbar-inner"><!--Where colors and gradient is defined-->
+				<ul class="nav">
+					<li><a href="index.html"><i class="icon-home icon-white"></i>Home</a></li><!--Class "active" shows current page as highlighted-->
+					<li><a href="http://games.espn.go.com/flb/standings?leagueId=42147&seasonId=2012">Standings</a></li>
+					<li><a href="PowerRankingsWeek6.php">Power Rankings</a></li>
+					<li class="active"><a href="keepers.php">Keepers</a></li>
+					<li><a href="#">History</a></li>
+					<li><a href="#">Team Bios</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Fantasy Baseball Sites<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li class="nav-header">My Teams</li>
+							<li><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=42147&teamId=7&seasonId=2012">Rob's League</a></li>
+							<li><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=7943&seasonId=2012">My League</a></li>
+							<li class="divider"></li>
+							<li class="nav-header">Other Sites</li>
+							<li><a href="http://games.espn.go.com/frontpage/baseball">ESPN</a></li>
+							<li><a href="http://insider.espn.go.com/mlb/features/rumors">ESPN Rumors</a></li>
+							<li><a href="http://www.fannation.com/truth_and_rumors?eref=sihp&sct=hp_bf2_a2">CNNSI Truth & Rumors</a></li>
+						</ul>
+					</li>   
+				</ul>
+			</div>
+		</div>
+		   
+
+<div class="keepers">
+
+ <?php	
+  echo'<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#pane1" data-toggle="tab">Hitters</a></li>
+    <li><a href="#pane2" data-toggle="tab">Pitchers</a></li>
+    <li><a href="#pane3" data-toggle="tab">First Base</a></li>
+    <li><a href="#pane4" data-toggle="tab">Second Base</a></li>
+	<li><a href="#pane5" data-toggle="tab">Shortstop</a></li>
+	<li><a href="#pane6" data-toggle="tab">Third Base</a></li>
+	<li><a href="#pane7" data-toggle="tab">Catcher</a></li>
+	<li><a href="#pane8" data-toggle="tab">Outfield</a></li>
+  </ul>';
+ 
+
+ $accounts= mysql_connect("baseballforlife.db.9357957.hostedresource.com","baseballforlife", "Mattingly2327") 
+or die (mysql_error());
+
+mysql_select_db("baseballforlife", $accounts);
+
+
+echo '  <div class="tab-content">';
+
+echo  '<div id="pane1" class="tab-pane active">';
+$result = mysql_query('SELECT * FROM Keepers WHERE Position !="P"' );
+echo '<table>';
+echo '<tr class="bottom-border"><td>Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+
+
+echo '<div id="pane2" class="tab-pane">';
+$result= mysql_query ('SELECT * FROM Keepers WHERE Position ="P"');
+echo'<table>';
+ echo '<tr><td class="bottom-border">Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+   
+   echo  '<div id="pane3" class="tab-pane">';
+$result = mysql_query('SELECT * FROM Keepers WHERE Position ="1B" Or Position="1B\;OF"' );
+echo '<table>';
+echo '<tr class="bottom-border"><td>Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+
+
+echo '<div id="pane4" class="tab-pane">';
+$result= mysql_query ('SELECT * FROM Keepers WHERE Position ="2B" or Position="2B\;OF"');
+echo'<table>';
+ echo '<tr><td class="bottom-border">Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+
+	   echo  '<div id="pane5" class="tab-pane">';
+$result = mysql_query('SELECT * FROM Keepers WHERE Position ="SS" Or Position="SS\;3B"' );
+echo '<table>';
+echo '<tr class="bottom-border"><td>Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+	
+   echo  '<div id="pane6" class="tab-pane">';
+$result = mysql_query('SELECT * FROM Keepers WHERE Position ="3B" Or Position="SS\;3B" or Position="3B\;OF"' );
+echo '<table>';
+echo '<tr class="bottom-border"><td>Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+
+   echo  '<div id="pane7" class="tab-pane">';
+$result = mysql_query('SELECT * FROM Keepers WHERE Position ="C"' );
+echo '<table>';
+echo '<tr class="bottom-border"><td>Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+
+
+   echo  '<div id="pane8" class="tab-pane">';
+$result = mysql_query('SELECT * FROM Keepers WHERE Position ="OF" Or Position="1B\;OF" or Position="2B\;OF" or Position="3B\;OF"' );
+echo '<table>';
+echo '<tr class="bottom-border"><td>Player</td><td>Pos</td><td>1st Yr</td><td>2nd Yr</td><td>3rd Yr</td><td>4th Yr</td><td>Years Kept</td></tr>';
+while($row = mysql_fetch_array($result)){
+echo '<tr><td class="name">'.$row['First'].'&nbsp'.$row['Last'].'</td><td class="entry">'.$row['Position'].'</td><td class="entry">'.$row['Year1'].'</td><td class="entry">'.$row['Year2'].'</td><td class="entry">'.$row['Year3'].'</td><td class="entry">'.$row['Year4'].'</td><td class="entry">'.$row['YearsKept'].'</td></tr>';
+}  
+echo '</table>';
+echo '</div>';
+
+
+echo'    </div>
+  </div>';
+mysql_close($accounts);
+
+
+?> 
+	</div>
+<!--Footer-->	
+	   <?php include 'footer.php'; ?>
+			
+	
+	<!-- hitwebcounter Code START -->
+	<a href="http://www.hitwebcounter.com/" target="_blank">
+		<img src="http://hitwebcounter.com/counter/counter.php?page=4440732&style=0009&nbdigits=3&type=page&initCount=0" title="free web counter" Alt="free web counter"   border="0" >
+	</a>
+	<br>
+	<!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com/internetcountercontact.php" title="Web Counter" 
+		target="_blank" style="font-family: Arial, Geneva , Helvetica, sans-serif;text-decoration: none ; color: #6C5D67; font-size: 12px;">
+		<strong>Web Counter</strong>
+	</a>
+</div>
+</body>
+
+<!-- ==============================================
+		 JavaScript below! 															-->
+
+<!-- jQuery via Google + local fallback, see h5bp.com -->
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  	<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+
+<!-- Bootstrap JS: compiled and minified -->
+    <script src="js/bootstrap.min.js"></script>
+   <script src="js/bootstrap-tab.js"></script>
+<!-- Example plugin: Prettify -->
+    <script src="js/prettify/prettify.js"></script>
+    
+<!-- Initialize Scripts -->
+		<script>
+			// Activate Google Prettify in this page
+			addEventListener('load', prettyPrint, false);
+		
+			$(document).ready(function(){
+
+				// Add prettyprint class to pre elements
+					$('pre').addClass('prettyprint');
+								
+			}); // end document.ready
+		</script>
+
+
+</html>

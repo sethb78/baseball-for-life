@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<?PHP
+
+	include 'sqlSurvey.php';
+
+	
+		include 'connection.php';
+$qID = '';
+	$question = 'Question not set';
+	$answerA = 'unchecked';
+	$answerB = 'unchecked';
+	$answerC = 'unchecked';
+	$answerD = 'unchecked';
+$result = mysql_query($SQL);
+
+		$db_field = mysql_fetch_assoc($result);
+
+			$qID = $db_field['QID'];
+			$question = $db_field['Question'];
+			$A = $db_field['qA'];
+			$B = $db_field['qB'];
+			$C = $db_field['qC'];
+			$D = $db_field['qD'];
+	?>
+
+
+<html>
+<head>
+
+
+<?php include 'head.php';?>
+</head>
+  <link rel="shortcut icon" href="images/ball.ico">
+<body>
+	
+	<div class="baseball">
+		
+	
+		<?php include 'header.php'; ?>
+
+			
+	
+	<!--Stud and Dud Boxes-->
+<?php
+
+$accounts= mysql_connect("baseballforlife.db.9357957.hostedresource.com","baseballforlife", "Mattingly2327") 
+		or die (mysql_error());
+		mysql_select_db("baseballforlife", $accounts);
+
+
+
+$_MaxWeek ="SELECT * FROM Stud Order by Week DESC";
+$result = mysql_query($_MaxWeek);
+$data=mysql_fetch_array($result);
+$data2=$data[0]+1;
+
+
+
+
+  echo '<div id="stud-dud">
+			<div class="span10">WEEK '.$data['Week'].' RESULTS</div><br>
+			<div id="comments">'.$data['Comments'].'</div><br>
+			<div class="row">
+				<div class="span5">
+					<div class="stud">
+						<div id="stud-title">Stud of the Week</div>
+						<img src="'.$data['Image'].'">
+						<div class="name">'.$data['Name'].'<br></div>
+						<div class="stat-line">'.$data['Line'].'</div>
+					</div>
+				</div>';
+					
+				mysql_select_db("baseballforlife", $accounts);
+				$_MaxWeek ="SELECT * FROM Dud Order by Week DESC";
+				$result = mysql_query($_MaxWeek);
+				$data=mysql_fetch_array($result);
+		   echo'<div class="span5">
+					<div class="dud">
+						<div id="dud-title">Dud of the Week</div>
+						<img src="'.$data['Image'].'">
+						<div class="name">'.$data['Name'].'<br></div>
+						<div class="stat-line">'.$data['Line'].'</div>
+					</div>
+				</div>
+			</div>';
+			?><hr>
+	<!----------------------------------------------------------------------------------------------->
+			<div class="span10">WEEK <?php echo $data2;?> Voting</div><br>
+			<div class="row">
+				<div class="span5">
+					<div class="poll_stud">
+						<?PHP $ip = $_SERVER['REMOTE_ADDR'];
+							$sql= ("SELECT  ip_address FROM vote_tracking WHERE poll_id='$qNum'");
+							$result=mysql_query($sql,$accounts);
+							while($row = mysql_fetch_array($result)){
+								if ($row['0']==$ip){ 
+									include 'viewResultsCalculations.php';
+									print '<div class="message">STUD POLL RESULTS</div>';
+									print '<div class="total_votes">('.$totalP.' Total Vote(s))</div><br>';
+									print $imgTagA . " " . $percentA . "%<br>" . $qA . "<br> ($answerA votes)<br>";
+									print $imgTagB . " " . $percentB . "%<br>" . $qB . "<br> ($answerB votes)<br>";
+									print $imgTagC . " " . $percentC . "%<br>" . $qC . "<br> ($answerC votes)<br>";
+									print $imgTagD . " " . $percentD . "%<br>" . $qD . "<br> ($answerD votes)<br>";
+									goto C;
+								}
+							}
+						?>	
+						<FORM NAME ="form1" METHOD ="GET" ACTION ="process_stud.php">
+							<P>
+							<div class="poll_question"><?PHP print $question; ?></div><br><br>
+							<P><P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'A' <?PHP print $answerA; ?>><?PHP print $A; ?>
+							<P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'B' <?PHP print $answerB; ?>><?PHP print $B; ?>
+							<P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'C' <?PHP print $answerC; ?>><?PHP print $C; ?>
+							<P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'D' <?PHP print $answerC; ?>><?PHP print $D; ?>
+							<P><br>
+							<INPUT TYPE = "Submit" Name = "Submit1"  VALUE = "Click here to vote">
+						</FORM>
+						<?php C:;?>
+					</div>
+				</div>
+				<div class="span5">
+					<div class="poll_dud">
+					<?php
+						include 'connection.php';
+						$sql= ("SELECT  ip_address FROM vote_tracking_Dud WHERE poll_id='$qNum_Dud'");
+							$result=mysql_query($sql,$accounts);
+							while($row = mysql_fetch_array($result)){
+								if ($row['0']==$ip){ 
+									include 'viewResultsCalculations.php';
+									print '<div class="message">Dud POLL RESULTS</div>';
+									print '<div class="total_votes">('.$totalP_Dud.' Total Vote(s))</div><br>';
+									print $imgTagA_Dud . " " . $percentA_Dud . "%<br>" . $qA_Dud . "<br> ($answerA_Dud votes)<br>";
+									print $imgTagB_Dud . " " . $percentB_Dud . "%<br>" . $qB_Dud . "<br> ($answerB_Dud votes)<br>";
+									print $imgTagC_Dud . " " . $percentC_Dud . "%<br>" . $qC_Dud . "<br> ($answerC_Dud votes)<br>";
+									print $imgTagD_Dud . " " . $percentD_Dud . "%<br>" . $qD_Dud . "<br> ($answerD_Dud votes)<br>";
+									goto D;
+								}
+							}
+						?>	
+						<FORM NAME ="form1" METHOD ="GET" ACTION ="process_dud.php">
+							<P>
+							<div class="poll_question"><?PHP print $question_Dud; ?></div><br><br>
+							<P><P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'A' <?PHP print $answerA_Dud; ?>><?PHP print $A_Dud; ?>
+							<P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'B' <?PHP print $answerB_Dud; ?>><?PHP print $B_Dud; ?>
+							<P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'C' <?PHP print $answerC_Dud; ?>><?PHP print $C_Dud; ?>
+							<P>
+							<INPUT TYPE = 'Radio' Name ='q'  value= 'D' <?PHP print $answerC_Dud; ?>><?PHP print $D_Dud; ?>
+							<P><br>
+							<INPUT TYPE = "Submit" Name = "Submit1"  VALUE = "Click here to vote">
+						</FORM>
+						<?php D:;?>				
+					</div>
+				</div>
+			</div>		
+					
+	</div><?php	include 'footer.php'; ?>
+
+</div>
+</body>
+
+<?include 'jsdocumentation.php'?>
+
+</html>

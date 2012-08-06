@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!--http://www.w3schools.com/php/php_ajax_poll.asp-->
+
+<html>
+<head>
+<script type="text/javascript">
+function getVote(int)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("poll").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","poll_vote.php?vote="+int,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<div id="poll">
+<h3>Do you like PHP and AJAX so far?</h3>
+<form>
+Yes:
+<input type="radio" name="vote" value="0" onclick="getVote(this.value)" />
+<br />No:
+<input type="radio" name="vote" value="1" onclick="getVote(this.value)" />
+</form>
+</div>
+
+
+
+</body>
+
+<!-- ==============================================
+		 JavaScript below! 															-->
+
+<!-- jQuery via Google + local fallback, see h5bp.com -->
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  	<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+
+<!-- Bootstrap JS: compiled and minified -->
+    <script src="js/bootstrap.min.js"></script>
+
+<!-- Example plugin: Prettify -->
+    <script src="js/prettify/prettify.js"></script>
+    
+<!-- Initialize Scripts -->
+		<script>
+			// Activate Google Prettify in this page
+			addEventListener('load', prettyPrint, false);
+		
+			$(document).ready(function(){
+
+				// Add prettyprint class to pre elements
+					$('pre').addClass('prettyprint');
+								
+			}); // end document.ready
+		</script>
+
+
+</html>

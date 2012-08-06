@@ -1,0 +1,26 @@
+<?PHP
+
+	//===================================================
+	//	SET THE QUESTION NUMBER HERE
+	//===================================================
+	include 'connection.php';
+	$q ="SELECT MAX(QID) FROM tblQuestions";
+	$q_Dud="SELECT MAX(QID) FROM tblQuestions_Dud";
+$result = mysql_query($q);
+$result_Dud = mysql_query($q_Dud);
+$data=mysql_fetch_array($result);
+$data_Dud=mysql_fetch_array($result_Dud);
+
+
+$qNum = $data[0];
+$qNum_Dud = $data_Dud[0];
+
+
+	//===================================================
+	//	GET A QUESTION FROM THE tblQuestions TABLE
+	//===================================================
+
+	$SQL = "SELECT * FROM tblQuestions WHERE tblQuestions.QID = '$qNum'";
+	$SQL_Dud = "SELECT * FROM tblQuestions_Dud WHERE tblQuestions_Dud.QID = '$qNum_Dud'";
+
+?>

@@ -1,0 +1,21 @@
+<?php
+
+$accounts= mysql_connect("baseballforlife.db.9357957.hostedresource.com","baseballforlife", "Mattingly2327") 
+or die (mysql_error());
+
+mysql_select_db("baseballforlife", $accounts);
+
+$
+$sql=("INSERT INTO Stud(Week, Name, Image,Line,Comments) 
+	VALUES('8','Johan Santana','http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4280.png&w=350&h=254','(No Hitter /9IP/8Ks/W/0.00 ERA/0.56 WHIP)','Congrats to Colonel Moustakas and his troops as they are the first organization to capture multiple studs of the week. This past week\'s winner was No-han Santana, delivering the Mets first ever no hitter. This week he will step to the side as four of his opponents will be represented. Based on this week\'s poll it is safe to say that Week 9 was a good week for the Angels. Also if anyone is interested in running the rankings that will post on the 4th of July Week, let me know (please don\'t all jump at once haha).  ');
+	
+");
+	
+	mysql_query($sql, $accounts);
+$sql2=("INSERT INTO Dud(Week, Name, Image,Line) 
+	VALUES('8','Mitch Moreland','http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/30452.png&w=350&h=254','(.192 OPS)');
+	
+");
+mysql_query($sql2, $accounts);//(variable, connection)
+
+?>

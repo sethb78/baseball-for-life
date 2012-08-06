@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+<head>
+
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>      
+	</style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]-->
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!--[endif]-->
+<!-- Modernizr for browser feature-checking 
+			+ HTML5shiv (included in modernizr) see modernizr.com -->
+  	<script src="js/modernizr-2.5.3.min.js"></script>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/sba.ico">
+    <link rel="apple-touch-icon-precomposed" href="images/sba.ico">
+</head>
+  <link rel="shortcut icon" href="images/ball.ico">
+<body>
+	<base target="_blank"><base target="_blank">
+	<div class="baseball">
+		
+		<div class="header">
+			<h1> BASEBALL FOR LIFE:  THE NEXT CHAPTER</h1>
+		</div>
+		<div class="navbar"><!--Navigation Bar-->
+			<div class="navbar-inner"><!--Where colors and gradient is defined-->
+				<ul class="nav">
+					<li class="active"><a href="index.html"><i class="icon-home icon-white"></i> Home</a></li><!--Class "active" shows current page as highlighted-->
+					<li><a href="http://games.espn.go.com/flb/standings?leagueId=42147&seasonId=2012">Standings</a></li>
+					<li><a href="PowerRankingsWeek5.html">Power Rankings</a></li>
+					<li><a href="#">Keepers</a></li>
+					<li><a href="#">History</a></li>
+					<li><a href="#">Team Bios</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Fantasy Baseball Sites<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li class="nav-header">My Teams</li>
+							<li><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=42147&teamId=7&seasonId=2012">Rob's League</a></li>
+							<li><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=7943&seasonId=2012">My League</a></li>
+							<li class="divider"></li>
+							<li class="nav-header">Other Sites</li>
+							<li><a href="http://games.espn.go.com/frontpage/baseball">ESPN</a></li>
+							<li><a href="http://insider.espn.go.com/mlb/features/rumors">ESPN Rumors</a></li>
+							<li><a href="http://www.fannation.com/truth_and_rumors?eref=sihp&sct=hp_bf2_a2">CNNSI Truth & Rumors</a></li>
+						</ul>
+					</li>   
+				</ul>
+			</div>
+		</div>
+
+		<div class="team">
+		<div class="row">   <ul class="thumbnails">
+    <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/ericcard.jpg" alt="">
+    </a><h5>Thumbnail label</h5>
+<p>Thumbnail caption right here...</p>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/chriscard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/davecard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/mattcard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/kevincard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/robcard.jpg" alt="">
+    </a>
+    </li>
+	
+       </ul>
+		</div> 
+		
+			<div class="row">   <ul class="thumbnails">
+     <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/ralphiecard.jpg" alt="">
+    </a><h5>Thumbnail label</h5>
+<p>Thumbnail caption right here...</p>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/arjuncard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/jeffreycard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="images/jasoncard.jpg" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="http://placehold.it/260x180" alt="">
+    </a>
+    </li>
+	 <li class="span2">
+    <a href="#" class="thumbnail">
+    <img src="http://placehold.it/260x180" alt="">
+    </a>
+    </li>
+	
+       </ul>
+		</div>
+</div>		
+	   <div class="footer">	
+			<ul>
+				<li><a href="#">About Me</a></li>
+				<li><a href="https://twitter.com/#!/search/realtime/sethbaltshuler" target="_blank" class="twitter-follow-button" data-show-count="false" data-size="large" title="@sethbaltshuler">Follow @twitter</a></li>
+				<li><a href="mailto:sethb78@gmail.com">Email Me</a></li>
+			</ul>
+	</div>
+	
+	<!-- hitwebcounter Code START -->
+	<a href="http://www.hitwebcounter.com/" target="_blank">
+		<img src="http://hitwebcounter.com/counter/counter.php?page=4440732&style=0009&nbdigits=3&type=page&initCount=0" title="free web counter" Alt="free web counter"   border="0" >
+	</a>
+	<br>
+	<!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com/internetcountercontact.php" title="Web Counter" 
+		target="_blank" style="font-family: Arial, Geneva , Helvetica, sans-serif;text-decoration: none ; color: #6C5D67; font-size: 12px;">
+		<strong>Web Counter</strong>
+	</a>
+</div>
+</body>
+
+<!-- ==============================================
+		 JavaScript below! 															-->
+
+<!-- jQuery via Google + local fallback, see h5bp.com -->
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  	<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+
+<!-- Bootstrap JS: compiled and minified -->
+    <script src="js/bootstrap.min.js"></script>
+
+<!-- Example plugin: Prettify -->
+    <script src="js/prettify/prettify.js"></script>
+    
+<!-- Initialize Scripts -->
+		<script>
+			// Activate Google Prettify in this page
+			addEventListener('load', prettyPrint, false);
+		
+			$(document).ready(function(){
+
+				// Add prettyprint class to pre elements
+					$('pre').addClass('prettyprint');
+								
+			}); // end document.ready
+		</script>
+
+
+</html>

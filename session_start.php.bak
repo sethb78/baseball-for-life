@@ -1,0 +1,15 @@
+<?PHP
+	include 'sqlSurvey.php';include 'connection.php';
+//$ipAddress = $_SERVER['REMOTE_ADDR'];
+session_start();
+$ip = $_SERVER['REMOTE_ADDR'];
+
+
+$date = date("Y/m/d");
+$time = date ("h:i:s A");
+
+if ((isset($_SESSION['hasVoted']))) {
+	if ($_SESSION['hasVoted'] = '1') {
+		@include("viewResults.php");goto B;		}
+}
+?>

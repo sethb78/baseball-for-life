@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<div id="qp_main81165" style="border:1px solid black;margin:10px;padding:10px;padding-bottom:12px;background-color:rgb(44,97,141)"><div style="font-family:Arial;font-size:12px;font-weight:bold;background-color:rgb(18,50,90);width:100%;color:white"><div style="padding:10px">player of the week</div></div><form id="qp_form81165" action="http://www.learnmyself.com/results81165xd2264bFd" method="post" target="_blank" style="padding:0px;margin-top:10px"><div style="width:100%"><div style="display:block;font-family:Arial;font-size:12px;color:white;padding-top:5px;padding-bottom:5px;clear:both;width:100%"><span style="display:block;padding-left:30px"><input style="float:left;width:25px;margin-left:-25px;margin-top:-1px;padding:0px;height:18px" name="qp_v81165" type="radio" value="1">tryo</span></div><div style="display:block;font-family:Arial;font-size:12px;color:white;padding-top:5px;padding-bottom:5px;clear:both;width:100%"><span style="display:block;padding-left:30px"><input style="float:left;width:25px;margin-left:-25px;margin-top:-1px;padding:0px;height:18px" name="qp_v81165" type="radio" value="2">matt</span></div></div><div style="padding-top:10px;clear:both"><input name="qp_b81165" style="width:80px;margin-right:5px" type="submit" value="Vote"><input name="qp_b81165" style="width:80px;margin-right:5px" type="submit" value="Results"></div><a id="qp_a81165" style="float:right;font-family:Arial;font-size:10px;color:white;text-decoration:none;margin-top:-2px;margin-right:-5px" href="http://www.learnmyself.com/personality.asp?p=new-poll">Create your own poll with LearnMyself</a></form></div><script src="http://scripts.learnmyself.com/3001/scpolls.js" language="javascript"></script>
+<!-- ==============================================
+		 JavaScript below! 															-->
+
+<!-- jQuery via Google + local fallback, see h5bp.com -->
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  	<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+
+<!-- Bootstrap JS: compiled and minified -->
+    <script src="js/bootstrap.min.js"></script>
+
+<!-- Example plugin: Prettify -->
+    <script src="js/prettify/prettify.js"></script>
+    
+<!-- Initialize Scripts -->
+		<script>
+			// Activate Google Prettify in this page
+			addEventListener('load', prettyPrint, false);
+		
+			$(document).ready(function(){
+
+				// Add prettyprint class to pre elements
+					$('pre').addClass('prettyprint');
+								
+			}); // end document.ready
+		</script>
+
+
+</html>

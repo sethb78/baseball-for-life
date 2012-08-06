@@ -1,0 +1,39 @@
+<?php
+
+$accounts= mysql_connect("baseballforlife.db.9357957.hostedresource.com","baseballforlife", "Mattingly2327") 
+or die (mysql_error());
+
+mysql_select_db("baseballforlife", $accounts);
+
+$sql = "CREATE TABLE Members
+(
+
+Full_Name varchar(20),
+First_Name varchar(20),
+Last_Name varchar(20),
+Card varchar(100),
+Bio text,
+Email varchar(25),
+Twitter varchar(25),
+User_Name varchar(25),
+Password varchar(25),
+Comment_1 text,
+Comment_2 text,
+Comment_3 text,
+Comment_4 text,
+Comment_5 text,
+Comment_6 text,
+Comment_7 text,
+Comment_8 text,
+Comment_9 text,
+Comment_10 text
+
+
+
+)
+";
+
+
+mysql_query($sql, $accounts);
+
+?>
